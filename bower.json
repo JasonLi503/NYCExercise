@@ -1,0 +1,10 @@
+{
+  "name": "nyuad-frontend",
+  "dependencies": {
+    "foundation-sites": "~6.3.1"
+  },
+  "private": true,
+  "devDependencies": {
+    "motion-ui": "^1.2.3"
+  }
+}
