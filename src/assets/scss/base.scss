@@ -19,89 +19,213 @@
 $breadcrumbs-item-uppercase: false;
 $breadcrumbs-item-separator-item : '>';
 $breadcrumbs-item-margin: 0.6rem;
+// @include foundation-global-styles;
+// @include foundation-xy-grid-classes;
 @include foundation-grid;
 @include foundation-flex-grid;
 @include foundation-flex-classes;
+// @include foundation-typography;
+// @include foundation-forms;
+// @include foundation-button;
+// @include foundation-accordion;
+// @include foundation-accordion-menu;
+// @include foundation-badge;
 @include foundation-breadcrumbs;
+// @include foundation-button-group;
+// @include foundation-callout;
+// @include foundation-card;
+// @include foundation-close-button;
 @include foundation-menu;
+// @include foundation-menu-icon;
+// @include foundation-drilldown-menu;
+// @include foundation-dropdown;
+// @include foundation-dropdown-menu;
+// @include foundation-responsive-embed;
+// @include foundation-label;
+// @include foundation-media-object;
+// @include foundation-off-canvas;
+// @include foundation-orbit;
+// @include foundation-pagination;
+// @include foundation-progress-bar;
+// @include foundation-slider;
+// @include foundation-sticky;
+// @include foundation-reveal;
+// @include foundation-switch;
+// @include foundation-table;
+// @include foundation-tabs;
+// @include foundation-thumbnail;
+// @include foundation-title-bar;
+// @include foundation-tooltip;
+// @include foundation-top-bar;
+// @include foundation-visibility-classes;
+// @include foundation-float-classes;
 
-@mixin fullScreen{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-}
-@mixin fullScreen2{
-    position: absolute;
-    // width: 100%;
-    height: 100%;
-}
-//invaliadle
-@mixin fullScreen3{
-    display: table;
-    width: 100%;
-    height: 100%;
-}
+//variables  (uncomment once added the site variables SCSS file
+// @import 'variables';
 
-// table{
-//     background-color: red;
-//     height: 100%;
-//     width: 100%;
-// }
-//full Screen 4
-html,body{
-    // height: 100%;
-}
-.header{
-    
-    width: 1250px;
-    margin: 0 auto;
-    background-color: red;
-    height: 30px;
-}
 
-.row{
-    // @include flex-grid-row(null, 1250, null, true, 30);
-    // margin: 0 auto;
-}
-.columns{
-    background-color: grey;
-    
-}
+$deskWidth:1250px;
+$sideNav:300px;
+$navHeight:120px;
+$maincolor:rgb(37, 2, 68);
+$backgroundcolor:rgb(239, 231, 244);
+$contentmarginleft:30px;
+
 body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
-    // display: flex;
-    // flex-direction: column;
-    // @include fullScreen2();
+    font-family: lato, sans-serif;
+    font-weight: bold;
+    // background-image: url(../../assets/img/test-mockup-with-grid.jpg);
+    // background-position: top center;
+    // background-repeat: no-repeat;
+    a{
+        text-decoration-line: none;
+    }
 }
-p:first-child{
-    // margin-top: 0;
+header{
+    display: flex;
+    height: 107px;
+    margin-bottom: 16px;
+    width: $deskWidth;
+    align-items: center;
+    img{
+        margin-top: 16px;
+        margin-left: 40px;
+    }
+    .menu{
+        margin-top: 40px;
+        padding-left: 116px;
+        a{
+            padding-left: 25px;
+            font-size: 26px;
+        }
+    }
 }
+header + hr{
+    margin: 0;
+    width: 100%;
+    height: 1px;
+    border-top: none;
+    box-shadow: 0 3px 3px grey;
+}
+
 main{
-    // display: flex;
-    // flex: 1 1 auto;
-    // height: 100%;
-}
-.firstDiv{
-    flex: 0 0 300px;
-    // width: 300px;
-    // height: 100%;
-    // float: left;
-    background-color: red;
-    .innerDiv{
-        // @include fullScreen();
+    display: flex;
+    flex-direction: row;
+    width: $deskWidth;
+
+    .menu{
+        padding-top: 19px;
+        padding-left: 22px;
+        width:366px;
+        h2{
+            font-size: 25px;
+            padding: 0 16px;
+            margin-bottom: 15px;
+        }
+
+        a{
+            font-size: 15px;
+            font-weight: normal;
+        }
+    }
+    //竖线
+    .menu + hr{
+        margin: 18px;
+    }
+    .content{
+        display: flex;
+        width: 100%;
+        flex-direction: column; 
+
+        .breadcrumbs{
+            padding: 0;
+            margin-left: 10px;
+            margin-top: 50px;
+            a{
+                font-size: 14px;
+                color:grey;
+                font-weight: normal;
+            }
+        }
+        // align-items: flex-start;
+        // flex: 1;
+        // border-left-width: 1px;
+        // border-left-style: solid;
+        // border-left-color: grey;
+
+        .msgblock{
+            margin-left: 8px;
+            // color: $maincolor;
+            .columns{
+                padding: 0;
+            }
+            .columns:first-child{
+                h2{
+                    font-size: 46px;
+                    margin: 7px 0 30px 0;
+                }
+            }
+            .columns:last-child{
+                margin: 102px 0px;
+                // border: solid 1px red;
+
+                p{
+                    margin: 0 0px;
+                    padding: 0 15px;
+                    width: 141px;
+                    
+                }
+                #newback{
+                    background-color: $backgroundcolor;
+                    
+                    // border:solid 1px red;
+                    margin: 0 18px;
+                    width: 170px;
+                }
+                #newshare{
+                    margin: 0 0px;
+                    width: 170px;
+                    height: 50px;
+                    // border:solid 1px red;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    &:after{
+                        content:url(../img/share.png);
+                        // float: right;
+                        // margin-top: auto;
+                        // margin-bottom: 0px;
+                    }
+                }
+                p:first-child{
+                    padding-top: 6px;
+                    border-top: solid 5px $maincolor;
+                    font-size: 20px;
+
+                }
+                // background-color: $backgroundcolor;
+                hr{
+                    background-color: $maincolor;
+                    width: 69px;
+                    margin-left: 15px;
+                    height: 1px;
+                } 
+                .newsdescript{
+                    font-size: 14px;
+                    font-weight: normal;
+                    padding-top: 8px;
+                    line-height: 21px;
+                }
+
+            } 
+        }
     }
 }
-.secondDiv{
-    flex: 1 1 auto;
-    // margin-left: 300px;
-    // height: 100%;
-    // width: 400px;
-    // float: left;
-    // @include fullScreen();
-    // display: table;
-    .innerDiv{
-        // display: table;
-    }
-    // display: table;
-    background-color: green;
-}
+//@import 'reset';
+//@import 'accessibility';
+//@import 'typography';
+//@import 'header';
