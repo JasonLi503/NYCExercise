@@ -5,49 +5,40 @@
 
 // Global variables and styles
 @import '../../../bower_components/foundation-sites/scss/global';
-@import '../../../bower_components/foundation-sites/scss/grid/_grid';
+@import '../../../bower_components/foundation-sites/scss/grid/grid';
 @import '../../../bower_components/foundation-sites/scss/util/_flex';
-@import '../../../bower_components/foundation-sites/scss/prototype/_prototype';
 
 // Create and add all required SCSS files as the example below
 @import '../../../bower_components/foundation-sites/scss/components/_breadcrumbs';
-@import '../../../bower_components/foundation-sites/scss/components/_tooltip';
-@import '../../../bower_components/foundation-sites/scss/components/_callout';
-
-// @import '../../../bower_components/motion-ui/src/motion-ui';
+@import './components/header';
 
 @import 'foundation';
-// $breadcrumbs-item-font-size: rem-calc(11);
-// @import 'motion-ui';
 
-//@import 'reset';
-//@import 'accessibility';
-//@import 'typography';
-//@import 'header';
+// $breadcrumbs-item-font-size: rem-calc(11);
 
 $breadcrumbs-item-uppercase: false;
 $breadcrumbs-item-separator-item : '>';
-$breadcrumbs-item-margin: 0.7rem;
-@include foundation-global-styles;
+
+// @include foundation-global-styles;
 // @include foundation-xy-grid-classes;
 @include foundation-grid;
 @include foundation-flex-grid;
 @include foundation-flex-classes;
 // @include foundation-typography;
 // @include foundation-forms;
-@include foundation-button;
+// @include foundation-button;
 // @include foundation-accordion;
 // @include foundation-accordion-menu;
 // @include foundation-badge;
 @include foundation-breadcrumbs;
 // @include foundation-button-group;
-@include foundation-callout;
+// @include foundation-callout;
 // @include foundation-card;
 // @include foundation-close-button;
 @include foundation-menu;
 // @include foundation-menu-icon;
 // @include foundation-drilldown-menu;
-@include foundation-dropdown;
+// @include foundation-dropdown;
 // @include foundation-dropdown-menu;
 // @include foundation-responsive-embed;
 // @include foundation-label;
@@ -64,213 +55,136 @@ $breadcrumbs-item-margin: 0.7rem;
 // @include foundation-tabs;
 // @include foundation-thumbnail;
 // @include foundation-title-bar;
-@include foundation-tooltip;
+// @include foundation-tooltip;
 // @include foundation-top-bar;
 // @include foundation-visibility-classes;
 // @include foundation-float-classes;
 
-// @include foundation-everything(true);
-// @include foundation-prototype-classes;
-
-// @include foundation-prototype-typescale;
-// @include foundation-prototype-text-utilities;
-// @include foundation-prototype-text-transformation;
-// @include foundation-prototype-text-decoration;
-// @include foundation-prototype-font-styling;
-// @include foundation-prototype-list-style-type;
-// @include foundation-prototype-rounded;
-// @include foundation-prototype-bordered;
-// @include foundation-prototype-shadow;
-// @include foundation-prototype-arrow;
-@include foundation-prototype-separator;
-// @include foundation-prototype-overflow;
-// @include foundation-prototype-display;
-// @include foundation-prototype-position;
-// @include foundation-prototype-border-box;
-// @include foundation-prototype-border-none;
-// @include foundation-prototype-sizing;
-// @include foundation-prototype-spacing;
-
 //variables  (uncomment once added the site variables SCSS file
 // @import 'variables';
 
-$themecolor:rgb(50,5,80);
-$backgroundColor:rgb(239, 231, 244);
 
-body{
-    margin: 0;
-    font-family: lato, sans-serif;
-    font-weight: bold;
-    // background-image: url(../../assets/img/test-mockup-with-grid.jpg);
-    // background-image: url(../../assets/img/test-mockup-with-grid-hover.jpg);
-    background-position: top center;
-    background-repeat: no-repeat;
-    a{
-        text-decoration-line: none;
-        color: $themecolor;
-    }
-
-}
-@mixin topLine{
-    border-top: solid 5px $themecolor;
-}
-
-.panelMenu,
-.newsback{
-    background-color: $backgroundColor;
-}
-.menu a,
-.menu h3, 
-.newsback h3, 
-.newsback p,
-.breadcrumbs a,
-main h2,
-.menu .menu-text,
-.panelMenu h2{
-    color:$themecolor;
-}
-.panelMenu button{
-    background-color: $themecolor;
-}
-
-.menu a,
-.breadcrumbs a{
-    &:focus{
-        font-weight: bold;
-    }
-}
-.menu, 
-// .menu li, 
-// .menu>li>a,
-.breadcrumbs{
-    padding-left: 0;
-}
-header{
-    height: 124px;
-    img{
-        margin-bottom: 16px;
-    }
-    .menu{
-        margin-bottom: 27px;
-        // padding-left: 1rem;
-        li>a{
-            font-size: 26px;
-            padding:0.7rem 19px;
-        }
-    }
-}
-hr{
-    border-top: none;
-    box-shadow: 0 0px 4px grey;
-    margin: 0;    
-}
-.panelMenu{
-    // border: solid black 1px;
-    border: none;
-    @include topLine();
-    border-top-width: 4px;
-    width: 100%;
+$deskWidth:1250px;
+$sideNav:300px;
+$navHeight:120px;
+.headerline{
+    float: none;
+    height: 3px;
     margin: 0;
     padding: 0;
-    >div{
-        position: relative;
-        &::before{
-            content: " ";
-            border-left: solid transparent 14px;
-            border-bottom: solid $themecolor 14px;
-            border-right: solid transparent 14px;
-            position: absolute;
-            top: -16px;
-            left: calc(50% - 122px);
-        }
-        @include flex-grid-row(null, 1300px, null, true, $grid-column-gutter);
-        .column{
-            padding: 0;
-            h2{
-                margin: 22px 0;
-                margin-left: 1px;
-                margin-bottom: 13px;
-                line-height: 32px
+    box-shadow: 0 3px 3px grey;
+}
+.mynav{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    max-width: $deskWidth;
 
-            }
-            button{
-                margin-top: 1px;
-                padding: 0.6rem 0.7rem;
-                width: 144px;
-                margin-left: 1px;
-                margin-bottom: 26px;
-            }
-            .menu{
-                height: 126px;
-                flex-flow:column wrap;
-                margin-top: 21px;
-        
-                li{
-                    border-left: solid 1px grey;
-                    >a{
-                        padding: 13px 1rem;
-                        padding-left: 9px;
-                    }
-                    width: 193px;
-                }
-            }
+    .logo{
+        width: $sideNav;
+        height: $navHeight;
+        display: flex;
+        img{
+            margin: auto auto;
+        }
+    }
+    .navmenu{
+        height: $navHeight;
+        #nav{
+            margin-top: 50px;
+        }
+        margin-left: 30px;
+        a{
+            font-size: 31px;
+            text-decoration-line: none;
         }
     }
 }
+$maincolor:rgb(37, 2, 68);
+$backgroundcolor:rgb(239, 231, 244);
+$contentmarginleft:30px;
+
 main{
-    margin-top: 2rem;
-    .menu{
-        .menu-text{
-            font-size: 24px;
-            padding-left: 0;
-            margin-bottom: 11px;
-        }
-        li>a{
-            padding-left: 0;
-            font-weight: normal;
-        }
-    }
-    .breadcrumbs{
-        margin-top: 17px;
+    margin: 55px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    max-width: $deskWidth;
 
-        li{
-            >a{
-                font-size: 13px;
-                font-weight: normal;
-            }
-            &:last-child a{
-                font-weight: bold;
-            }
+    .leftMenu{
+        width: $sideNav;
+        li:first-child{
+            color: $maincolor;
+            margin-left: 1em;
         }
-    }
-    h2{
-        font-size: 46px;
-        margin: 22px 0;
-    }
-    img{
-        margin-top: 5px;
-    }
+        a{
+            text-decoration-line: none;
+        }
 
-    .newsback{
-        // display: table;
-        margin-top: 156px;
-        @include topLine;
-        padding: 0 15px;
-        h3{
-            margin: 0.5rem 0;
-            @include separator(left,2px,4rem,$themecolor,8px);
+    }
+    .rightContent{
+        flex: 1;
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: grey;
+        .bread{
+            height: 50px;
+            line-height: 50px;
+            color: $maincolor;
+            a{
+                text-decoration-line: none;
+            }
         }
-        p{
-            margin: 14px 0;
-            font-size: 14px;
-            margin-bottom: 50px;
+        .adsTitle{
+            margin-left: $contentmarginleft;
+            font-size: 28px;
+            color: $maincolor;
         }
-        box-sizing: border-box!important;
-        &:after{
-            content:url(../img/share.png);
-            float: right;
-            margin-top: -25px;
-            margin-right: -15px;
+        .content{
+            div{
+                padding: 0;
+            }
+            img{
+                margin-left: $contentmarginleft;
+            }
+            .subcontend{
+
+                border-top-width: 5px;
+                border-top-style: solid;
+                border-top-color: $maincolor;
+                &:after{
+                    content:url(../img/share.png);
+                    float: right;
+                    margin-top: -35px;
+                }
+                p{
+                    padding: 15px;
+                }
+                p:first-child{
+                    margin-top: 0;
+                    padding-bottom: 0;
+                    font-size: 20px;
+                    
+                }
+                p:first-child + p{
+                    margin: 0 0 0 15px;
+                    padding: 0;
+                    width: 50%;
+
+                    border-top-width: 1px;
+                    border-top-style: solid;
+                    border-top-color: $maincolor;
+                    
+                }
+                border-top-color: $maincolor;
+                background-color: $backgroundcolor;
+                width:11em;
+                margin-left:2em; 
+            }
         }
     }
+    
 }
+//@import 'reset';
+//@import 'accessibility';
+//@import 'typography';
+//@import 'header';
