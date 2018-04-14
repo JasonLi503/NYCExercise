@@ -5,262 +5,103 @@
 
 // Global variables and styles
 @import '../../../bower_components/foundation-sites/scss/global';
-@import '../../../bower_components/foundation-sites/scss/grid/_grid';
+@import '../../../bower_components/foundation-sites/scss/grid/grid';
 @import '../../../bower_components/foundation-sites/scss/util/_flex';
-@import '../../../bower_components/foundation-sites/scss/prototype/_prototype';
 
 // Create and add all required SCSS files as the example below
 @import '../../../bower_components/foundation-sites/scss/components/_breadcrumbs';
-@import '../../../bower_components/foundation-sites/scss/components/_tooltip';
-@import '../../../bower_components/foundation-sites/scss/components/_callout';
-
-// @import '../../../bower_components/motion-ui/src/motion-ui';
+@import './components/header';
 
 @import 'foundation';
-// $breadcrumbs-item-font-size: rem-calc(11);
-// @import 'motion-ui';
 
-//@import 'reset';
-//@import 'accessibility';
-//@import 'typography';
-//@import 'header';
+// $breadcrumbs-item-font-size: rem-calc(11);
 
 $breadcrumbs-item-uppercase: false;
 $breadcrumbs-item-separator-item : '>';
 $breadcrumbs-item-margin: 0.6rem;
-@include foundation-global-styles;
-// @include foundation-xy-grid-classes;
 @include foundation-grid;
 @include foundation-flex-grid;
 @include foundation-flex-classes;
-// @include foundation-typography;
-// @include foundation-forms;
-@include foundation-button;
-// @include foundation-accordion;
-// @include foundation-accordion-menu;
-// @include foundation-badge;
 @include foundation-breadcrumbs;
-// @include foundation-button-group;
-@include foundation-callout;
-// @include foundation-card;
-// @include foundation-close-button;
 @include foundation-menu;
-// @include foundation-menu-icon;
-// @include foundation-drilldown-menu;
-@include foundation-dropdown;
-// @include foundation-dropdown-menu;
-// @include foundation-responsive-embed;
-// @include foundation-label;
-// @include foundation-media-object;
-// @include foundation-off-canvas;
-// @include foundation-orbit;
-// @include foundation-pagination;
-// @include foundation-progress-bar;
-// @include foundation-slider;
-// @include foundation-sticky;
-// @include foundation-reveal;
-// @include foundation-switch;
-// @include foundation-table;
-// @include foundation-tabs;
-// @include foundation-thumbnail;
-// @include foundation-title-bar;
-@include foundation-tooltip;
-// @include foundation-top-bar;
-// @include foundation-visibility-classes;
-// @include foundation-float-classes;
 
-// @include foundation-everything(true);
-// @include foundation-prototype-classes;
-
-// @include foundation-prototype-typescale;
-// @include foundation-prototype-text-utilities;
-// @include foundation-prototype-text-transformation;
-// @include foundation-prototype-text-decoration;
-// @include foundation-prototype-font-styling;
-// @include foundation-prototype-list-style-type;
-// @include foundation-prototype-rounded;
-// @include foundation-prototype-bordered;
-// @include foundation-prototype-shadow;
-// @include foundation-prototype-arrow;
-@include foundation-prototype-separator;
-// @include foundation-prototype-overflow;
-// @include foundation-prototype-display;
-// @include foundation-prototype-position;
-// @include foundation-prototype-border-box;
-// @include foundation-prototype-border-none;
-// @include foundation-prototype-sizing;
-// @include foundation-prototype-spacing;
-
-//variables  (uncomment once added the site variables SCSS file
-// @import 'variables';
-
-$themecolor:rgb(50,5,80);
-$backgroundColor:rgb(239, 231, 244);
-
-body{
-    // margin: 0;
-    font-family: lato, sans-serif;
-    font-weight: bold;
-    // background-image: url(../../assets/img/test-mockup-with-grid.jpg);
-    // background-image: url(../../assets/img/test-mockup-with-grid-hover.jpg);
-    background-position: top center;
-    background-repeat: no-repeat;
-    a{
-        text-decoration-line: none;
-    }
+@mixin fullScreen{
+    position: fixed;
+    top: 0;
+    bottom: 0;
 }
-@mixin topRow{
-    border-top: solid 4px $themecolor;
+@mixin fullScreen2{
+    position: absolute;
+    // width: 100%;
+    height: 100%;
 }
-header .menu,
-main .menu,
-main .breadcrumbs,
-.panelMenu .menu{
-    padding-left: 0;
-}
-.menu a,
-main .breadcrumbs a,
-.panelMenu .menu a,
-.panelMenu h2,
-main h2{
-    color: $themecolor;
-}
-.panelMenu button{
-    background-color: $themecolor;
-}
-.panelMenu,
-.newsback{
-    background-color: $backgroundColor;
-}
-header{
-    height: 124px;
-
-    .menu{
-        padding-left: 0;
-        margin-top: 50px;
-        li{
-            margin-right: 10px;
-
-        }
-        a{
-            font-size: 26px;
-
-        }
-    }
-}
-hr{
-    border-top: none;
-    box-shadow: 0 0 3px grey;
-    margin: 0;
-}
-
-main{
-    margin-top: 35px;
-    .menu{
-        .menu-text{
-            padding-left: 0;
-        }
-        li>a{
-            padding-left: 0;
-            font-weight: normal;
-    
-            &:focus{
-                font-weight: bold;
-            }
-        }
-    }
-    .menu-text{
-        font-size: 24px;
-        margin-bottom: 8px;
-    }
-    .breadcrumbs{
-        margin-top: 1rem;
-        
-        li:last-child>a{
-            font-weight: bold;
-        }
-        >li>a{
-            font-weight: normal;
-            font-size: 14px;
-        }
-    }
-    h2{
-        font-size: 46px;
-        margin: 19px 0;
-    }
-    img{
-        margin-top: 8px;
-    }
-    .newsback{
-        margin-top: 152px;
-        // padding-bottom: 35px;
-        @include topRow();
-
-        h3{
-            margin: 0.5rem 0;
-            padding: 0 15px;
-            @include separator(left,2px,3em,$themecolor,10px);
-        }
-        p{
-            padding: 0 15px;
-            font-size: 14px;
-        }
-        div{
-            
-            img{
-                float: right;
-            }
-            &:after{
-                content: " ";
-                display: block;
-                clear: both;
-            }
-        }
-    }
-}
-
-.panelMenu{
-    border: none;
-    @include topRow();
-    height: 165px;
+//invaliadle
+@mixin fullScreen3{
+    display: table;
     width: 100%;
-    padding: 0;
-    // background-color: transparent;
-    .column{
-        padding-left: 0;
-    }
-    h2{
-        margin-bottom: 15px;
-        line-height: 32px;
-    }
-    >div{
+    height: 100%;
+}
 
-        position: relative;
-        &:before{
-            content: " ";
-            border-left: solid 14px transparent;
-            border-bottom: solid 14px $themecolor;
-            border-right: solid 14px transparent;
-            position: absolute;
-            top: -16px;
-            left: calc(50% - 122px);
-        }
-        @include flex-grid-row(null, 1300px, null, true, $grid-column-gutter);
-        button{
-            padding: 10px 18px;
-        }
+// table{
+//     background-color: red;
+//     height: 100%;
+//     width: 100%;
+// }
+//full Screen 4
+html,body{
+    // height: 100%;
+}
+.header{
+    
+    width: 1250px;
+    margin: 0 auto;
+    background-color: red;
+    height: 30px;
+}
 
-        .menu{
-            flex-wrap: wrap;
-            margin-top: 1.35rem;
-            height: 140px;
-            li {
-                width: 192px;
-                a{
-                    padding-left: 0.55rem;
-                    margin-bottom: 3px;
-                }
-            }
-        }
+.row{
+    // @include flex-grid-row(null, 1250, null, true, 30);
+    // margin: 0 auto;
+}
+.columns{
+    background-color: grey;
+    
+}
+body{
+    margin: 0;
+    // display: flex;
+    // flex-direction: column;
+    // @include fullScreen2();
+}
+p:first-child{
+    // margin-top: 0;
+}
+main{
+    // display: flex;
+    // flex: 1 1 auto;
+    // height: 100%;
+}
+.firstDiv{
+    flex: 0 0 300px;
+    // width: 300px;
+    // height: 100%;
+    // float: left;
+    background-color: red;
+    .innerDiv{
+        // @include fullScreen();
     }
+}
+.secondDiv{
+    flex: 1 1 auto;
+    // margin-left: 300px;
+    // height: 100%;
+    // width: 400px;
+    // float: left;
+    // @include fullScreen();
+    // display: table;
+    .innerDiv{
+        // display: table;
+    }
+    // display: table;
+    background-color: green;
 }
