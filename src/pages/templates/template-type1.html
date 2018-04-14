@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -7,67 +8,123 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/base.css">
-    <script src="//use.edgefonts.net/lato.js"></script>
+	<script src="//use.edgefonts.net/lato.js"></script>
 	<script src="../assets/js/scripts.js"></script>
 </head>
 
-
 <body>
-<header role="banner">
-<!-- main navigation goes here -->
-	 <img src="../../assets/img/nyulogo.png" alt="">
-	<ul class="menu">
-		<li><a href="#">Academics</a>
-		</li>
-		<li><a href="#">Admissions</a>
-		</li>
-		<li><a href="#">Research</a>
-		</li> 
-		<li><a href="#">Campus Life</a>
-		</li> 
-		<li><a href="#">About</a>
-		</li> 
-	</ul> 
-</header>
-<hr />
- <main>
-	<!-- all body content, sidebars would go here -->
-	 <ul class="vertical menu">
-		<li><h2>Locations</h2></li>
-		<li><a href="#">North America</a></li>
-		<li><a href="#">South America</a></li>
-		<li><a href="#">Europe</a></li>
-		<li><a href="#">Africa</a></li>
-		<li><a href="#">Asia</a></li>
-	</ul>
-	<hr />
-	 <div class="content">
-		<ul class="breadcrumbs">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Academics</a></li>
-			<li class="unavailable"><a href="#">Global Education</a></li>
-			<li class="current"><a href="#">January Team</a></li>
-			<li class="current"><a href="#">Locations</a></li>
-			<li class="current"><a href="#">Europe</a></li>
-		</ul>
-		 <div class="msgblock"> 
-			<div class="small-9 columns">
-				<h2> 3/4/5 Level 1-3-1 Template (H2)</h2>
-				<img src="../../assets/img/pic1.jpg" alt="picture">
-			</div>
-			 <div class="small-3 columns">
-				<div id="newback">
-					<p>Getting Started at NYUAD</p>
-					<hr /> 
-					<p class="newsdescript">Welcome to the class of 2020! Get started on your journey over the next four years with Marhaba!</p>
-					<div id="newshare"></div>
-				</div>
-					 
-			</div> 
-		</div>	 
-	</div>    
-</main>
+	<header role="banner" class="row align-top">
+		<!-- main navigation goes here -->
 
-<!-- footer would go here -->
+		<div class="large-4 column">
+			<img src="../../assets/img/nyulogo.png" alt="">
+		</div>
+		<nav class="columns">
+			<ul class="menu horzintalNav">
+				<li><a href="#" data-toggle="academicsDiv">Academics</a>
+				</li>
+				<li><a href="#">Admissions</a>
+				</li>
+				<li><a href="#">Research</a>
+				</li>
+				<li><a href="#">Campus Life</a>
+				</li>
+				<li><a href="#">About</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- </div> -->
+	</header>
+	<nav class="panelMenu dropdown-pane" data-v-offset="26" id="academicsDiv" data-dropdown data-hover="true" data-hover-pane="true">
+		<div class="align-top">
+			<section class="column large-6">
+				<h2>
+					NYU Abu Dhabi's curriculum exporse students to transformative achievements
+				</h2>
+				<button class="button" type="button">
+					Visit Academics
+				</button>
+			</section>
+			<nav class="column large-5">
+				<ul class="menu flex-container flex-dir-column">
+					<li>
+						<a href="#">Item 1</a>
+					</li>
+					<li>
+						<a href="#">Item 2</a>
+					</li>
+					<li>
+						<a href="#">Item 3</a>
+					</li>
+					<li>
+						<a href="#">Item 4</a>
+					</li>
+					<li>
+						<a href="#">Item 5</a>
+					</li>
+					<li>
+						<a href="#">Item 6</a>
+					</li>
+					<li>
+						<a href="#">Item 7</a>
+					</li>
+					<li>
+						<a href="#">Item 8</a>
+					</li>
+					<li>
+						<a href="#">&nbsp;</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</nav>
+
+	<hr class="headerLine" />
+	<main class="row">
+		<!-- all body content, sidebars would go here -->
+
+		<nav class="columns large-3 vm">
+			<ul class="vertical menu">
+				<li class="menu-text">Locations</li>
+				<li><a href="#">North America</a></li>
+				<li><a href="#">South America</a></li>
+				<li><a href="#">Europe</a></li>
+				<li><a href="#">Africa</a></li>
+				<li><a href="#">Asia</a></li>
+			</ul>
+		</nav>
+		<div class="columns large-7">
+			<nav>
+				<ul class="breadcrumbs">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Academics</a></li>
+					<li class="unavailable"><a href="#">Global Education</a></li>
+					<li class="current"><a href="#">January Team</a></li>
+					<li class="current"><a href="#">Locations</a></li>
+					<li class="current"><a href="#">Europe</a></li>
+				</ul>
+			</nav>
+			<article>
+				<h2> 3/4/5 Level 1-3-1 Template (H2)</h2>
+				<img class="" src="../../assets/img/pic1.jpg" alt="picture">
+			</article>
+		</div>
+		<div class="columns large-2">
+			<article class="newsback">
+				<h3 class="">Getting Started at NYUAD</h3>
+				<p>Welcome to the class of 2020! Get started on your journey over the next four years with Marhaba!</p>
+				<div><img src="../../assets/img/share.png" alt=""></div>
+			</article>
+		</div>
+	</main>
+
+	<!-- footer would go here -->
+	<footer>
+		<p>
+			<!-- <a href="https://beian.aliyun.com/order/index.htm?spm=5176.200001.0.0.hvajR4">沪ICP备16026299号</a> -->
+			<a href="https://beian.aliyun.com/?spm=5176.8087400.765261.3.325dd1496fw9fg">沪ICP备16026299号</a>
+		</p>
+	</footer>
 </body>
+
 </html>
