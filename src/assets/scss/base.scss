@@ -27,7 +27,7 @@
 
 $breadcrumbs-item-uppercase: false;
 $breadcrumbs-item-separator-item : '>';
-$breadcrumbs-item-margin: 0.6rem;
+$breadcrumbs-item-margin: 0.7rem;
 @include foundation-global-styles;
 // @include foundation-xy-grid-classes;
 @include foundation-grid;
@@ -101,185 +101,176 @@ body{
     margin: 0;
     font-family: lato, sans-serif;
     font-weight: bold;
+    // background-image: url(../../assets/img/test-mockup-with-grid.jpg);
+    // background-image: url(../../assets/img/test-mockup-with-grid-hover.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
     a{
         text-decoration-line: none;
         color: $themecolor;
     }
+
+}
+@mixin topLine{
+    border-top: solid 5px $themecolor;
 }
 
-.columns, .column{
-    box-sizing: border-box;
+.panelMenu,
+.newsback{
+    background-color: $backgroundColor;
+}
+.menu a,
+.menu h3, 
+.newsback h3, 
+.newsback p,
+.breadcrumbs a,
+main h2,
+.menu .menu-text,
+.panelMenu h2{
+    color:$themecolor;
+}
+.panelMenu button{
+    background-color: $themecolor;
+}
+
+.menu a,
+.breadcrumbs a{
+    &:focus{
+        font-weight: bold;
+    }
+}
+.menu, 
+// .menu li, 
+// .menu>li>a,
+.breadcrumbs{
+    padding-left: 0;
 }
 header{
-    height: 113px;
+    height: 124px;
     img{
-        padding-bottom: 6px;
+        margin-bottom: 16px;
     }
     .menu{
-        padding-left: 0;
-        margin-bottom: 16px;
-        a{
-            padding-right: 22px;
+        margin-bottom: 27px;
+        // padding-left: 1rem;
+        li>a{
             font-size: 26px;
-            &:hover{
-                background-color: $themecolor;
-                color: white;
-            }
+            padding:0.7rem 19px;
         }
     }
 }
-//dd背景
+hr{
+    border-top: none;
+    box-shadow: 0 0px 4px grey;
+    margin: 0;    
+}
 .panelMenu{
-    padding: 0;
+    // border: solid black 1px;
     border: none;
-    margin: 0;
+    @include topLine();
+    border-top-width: 4px;
     width: 100%;
-    height: 166px;
-    font-family: lato, sans-serif;
-    font-weight: bold;
-    background-color: $backgroundColor;
-    border-top: solid 5px $themecolor;
-
-    //row
+    margin: 0;
+    padding: 0;
     >div{
-        @include flex-grid-row(null, 1300px, null, true, $grid-column-gutter);
         position: relative;
         &::before{
             content: " ";
-            border-left: solid transparent 10px;
-            border-bottom: solid $themecolor 10px;
-            border-right: solid transparent 10px;
+            border-left: solid transparent 14px;
+            border-bottom: solid $themecolor 14px;
+            border-right: solid transparent 14px;
             position: absolute;
-            top: -15px;
-            left: 32rem;
-            margin-right: 100px;
+            top: -16px;
+            left: calc(50% - 122px);
         }
-        .column:first-child{
+        @include flex-grid-row(null, 1300px, null, true, $grid-column-gutter);
+        .column{
+            padding: 0;
             h2{
-                margin-top: 23px;
-                margin-bottom: 10px;
-                line-height: 30px;
-                font-weight: normal;
-                color: $themecolor;
+                margin: 22px 0;
+                margin-left: 1px;
+                margin-bottom: 13px;
+                line-height: 32px
+
             }
             button{
-                margin-top: 7px;
-                padding-top: 8px;
-                padding-bottom: 10px;
-                margin-bottom: 25px;
-                background-color: $themecolor;
-                font-family: lato, sans-serif;
-                font-size: 16px;
-                font-weight: bold;
+                margin-top: 1px;
+                padding: 0.6rem 0.7rem;
+                width: 144px;
+                margin-left: 1px;
+                margin-bottom: 26px;
             }
-        }
-        .column:last-child{
-            padding-left: 0;
             .menu{
-                height: 140px;
-                padding-left: 0;
-                margin-top: 16px;
-                flex-flow: column wrap;
-                border-left: solid 1px lightgrey;
+                height: 126px;
+                flex-flow:column wrap;
+                margin-top: 21px;
+        
                 li{
-                    padding: 2px 0;
-                    width: 193px; 
-                    border-right: solid 1px lightgrey;
-                    a{
-                        padding: 0.7rem 7px;
-                        font-family: lato, sans-serif;
-                        // font-size: 17px;
-                        // color: black;
+                    border-left: solid 1px grey;
+                    >a{
+                        padding: 13px 1rem;
+                        padding-left: 9px;
                     }
+                    width: 193px;
                 }
             }
         }
     }
 }
-.headerLine{
-    border-top: none;
-    box-shadow: 0 2px 2px grey;
-}
 main{
-    //menu text
-    .vm li:first-child{
-        margin: 40px 0 22px;
-        padding: 0;
-        font-size: 24px;
-    }
-    //left menu vertical
+    margin-top: 2rem;
     .menu{
-        padding-left: 0px;
-        a{
-            padding-left: 0px;
-            font-size: 15px;
-            &:focus{
-                font-weight: bold;
-            }
+        .menu-text{
+            font-size: 24px;
+            padding-left: 0;
+            margin-bottom: 11px;
+        }
+        li>a{
+            padding-left: 0;
             font-weight: normal;
         }
-        float: left;
-    }
-    //竖线
-    .menu + hr{
-        margin: 0;
-        margin-top: 40px;
-        float: right;
     }
     .breadcrumbs{
-        padding-left: 0;
-        margin-top: 45px;
-        margin-bottom: 0;
-        a{
-            font-size: 14px;
-            color:$themecolor;
-            font-weight: normal;
+        margin-top: 17px;
+
+        li{
+            >a{
+                font-size: 13px;
+                font-weight: normal;
+            }
+            &:last-child a{
+                font-weight: bold;
+            }
         }
-        li:last-child>a{
-            font-weight: bold;
-        }
-        
     }
     h2{
         font-size: 46px;
-        padding: 0;
-        margin: 23px 0;
-        color:$themecolor;
+        margin: 22px 0;
     }
     img{
-        padding-top: 5px;
+        margin-top: 5px;
     }
+
     .newsback{
-        margin-top: 183px;
-        background-color: $backgroundColor;
-        p,h3{
-            margin: 0;
-            padding: 13px 15px;
-            color:$themecolor;
-        }
-
-        //title
+        // display: table;
+        margin-top: 156px;
+        @include topLine;
+        padding: 0 15px;
         h3{
-            border-top: solid 5px $themecolor;
-            padding-top: 7px;
-            font-size: 20px;
-            font-family: lato, sans-serif;
-            font-weight: bold;
-
-            @include separator(left,2px,3em,$themecolor,10px);
+            margin: 0.5rem 0;
+            @include separator(left,2px,4rem,$themecolor,8px);
         }
-        //description
-        p:last-child{
-            padding-bottom: 50px;
+        p{
+            margin: 14px 0;
             font-size: 14px;
-            font-weight: normal;
-            line-height: 21px;
+            margin-bottom: 50px;
         }
-        
+        box-sizing: border-box!important;
         &:after{
             content:url(../img/share.png);
             float: right;
             margin-top: -25px;
+            margin-right: -15px;
         }
     }
 }
