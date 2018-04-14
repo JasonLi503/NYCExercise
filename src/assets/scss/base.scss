@@ -5,22 +5,30 @@
 
 // Global variables and styles
 @import '../../../bower_components/foundation-sites/scss/global';
-@import '../../../bower_components/foundation-sites/scss/grid/grid';
+@import '../../../bower_components/foundation-sites/scss/grid/_grid';
 @import '../../../bower_components/foundation-sites/scss/util/_flex';
-@import '../../../bower_components/foundation-sites/scss/prototype/prototype';
+@import '../../../bower_components/foundation-sites/scss/prototype/_prototype';
 
 // Create and add all required SCSS files as the example below
 @import '../../../bower_components/foundation-sites/scss/components/_breadcrumbs';
 @import '../../../bower_components/foundation-sites/scss/components/_tooltip';
-@import './components/header';
+@import '../../../bower_components/foundation-sites/scss/components/_callout';
+
+// @import '../../../bower_components/motion-ui/src/motion-ui';
 
 @import 'foundation';
 // $breadcrumbs-item-font-size: rem-calc(11);
+// @import 'motion-ui';
+
+//@import 'reset';
+//@import 'accessibility';
+//@import 'typography';
+//@import 'header';
 
 $breadcrumbs-item-uppercase: false;
 $breadcrumbs-item-separator-item : '>';
 $breadcrumbs-item-margin: 0.6rem;
-// @include foundation-global-styles;
+@include foundation-global-styles;
 // @include foundation-xy-grid-classes;
 @include foundation-grid;
 @include foundation-flex-grid;
@@ -33,13 +41,13 @@ $breadcrumbs-item-margin: 0.6rem;
 // @include foundation-badge;
 @include foundation-breadcrumbs;
 // @include foundation-button-group;
-// @include foundation-callout;
+@include foundation-callout;
 // @include foundation-card;
 // @include foundation-close-button;
 @include foundation-menu;
 // @include foundation-menu-icon;
 // @include foundation-drilldown-menu;
-// @include foundation-dropdown;
+@include foundation-dropdown;
 // @include foundation-dropdown-menu;
 // @include foundation-responsive-embed;
 // @include foundation-label;
@@ -53,7 +61,7 @@ $breadcrumbs-item-margin: 0.6rem;
 // @include foundation-reveal;
 // @include foundation-switch;
 // @include foundation-table;
-@include foundation-tabs;
+// @include foundation-tabs;
 // @include foundation-thumbnail;
 // @include foundation-title-bar;
 @include foundation-tooltip;
@@ -82,11 +90,9 @@ $breadcrumbs-item-margin: 0.6rem;
 // @include foundation-prototype-border-none;
 // @include foundation-prototype-sizing;
 // @include foundation-prototype-spacing;
-// @include separator();
 
 //variables  (uncomment once added the site variables SCSS file
 // @import 'variables';
-
 
 $pageWidth:1250px;
 $frontColor:rgb(37, 2, 68);
@@ -100,6 +106,7 @@ body{
     font-family: lato, sans-serif;
     font-weight: bold;
     // background-image: url(../../assets/img/test-mockup-with-grid.jpg);
+    // background-image: url(../../assets/img/test-mockup-with-grid-hover.jpg);
     background-position: top center;
     background-repeat: no-repeat;
     a{
@@ -122,43 +129,79 @@ header{
             margin-bottom: 16px;
             font-size: 26px;
             &:hover{
-                background-color: rgb(50,5,80);
+                background-color: $themecolor;
                 color: white;
             }
         }
     }
 }
 .panelMenu{
-    background-color: $backgroundColor;
-    border-top: solid 5px $frontColor;
+    border: none;
     margin: 0 auto;
     width: 100%;
-    height: 160px;
-    
+    padding: 0;
+    font-family: lato, sans-serif;
+    font-weight: bold;
+    background-color: $backgroundColor;
+    border-top: solid 5px $themecolor;
+
+    &::before{
+        content: " ";
+        border-left: solid transparent 10px;
+        border-bottom: solid $themecolor 10px;
+        border-right: solid transparent 10px;
+        position: absolute;
+        top: -16px;
+        left: 43%;
+    }
     >div{
-        // padding-left: 75px;
         @include flex-grid-row(null, 1300px, null, true, $grid-column-gutter);
+    }
+    h2{
+        margin-top: 23px;
+        margin-bottom: 10px;
+        line-height: 30px;
+        font-weight: normal;
+        color: $themecolor;
     }
     .column:first{
         float: left;
     }
     button{
+        padding-top: 8px;
+        padding-bottom: 10px;
+        margin-top: 7px;
+        margin-bottom: 25px;
         background-color: $themecolor;
+        font-family: lato, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
     }
-    .menu{
-        height: 120px;
-        flex-flow: column wrap;
+    .column:last-child{
+        padding-left: 0;
+        .menu{
+            height: 140px;
+            padding-left: 0;
+            margin-top: 16px;
+            flex-flow: column wrap;
+            border-left: solid 1px lightgrey;
+            li{
+                padding: 2px 0;
+                width: 193px;
+                border-right: solid 1px lightgrey;
+                a{
+                    padding: 0.7rem 7px;
+                    font-family: lato, sans-serif;
+                    // font-size: 17px;
+                    color: black;
+                }
+            }
+        }
     }
 }
 .headerLine{
     border-top: none;
     box-shadow: 0 2px 2px grey;
-}
-.myseparator{
-    @include separator(left,2px,3em,rgb(50,5,80),10px);
-    // @include separator($align, $height, $width, $background, $top);
-    // text-align: left;
-    // width: 200px;
 }
 main{
     .vm li:first-child{
@@ -171,6 +214,10 @@ main{
         a{
             padding-left: 0px;
             font-size: 15px;
+            color: grey;
+            &:focus{
+                color: black;
+            }
             font-weight: normal;
         }
         float: left;
@@ -190,6 +237,10 @@ main{
             color:grey;
             font-weight: normal;
         }
+        li:last-child>a{
+            color: black;
+        }
+        
     }
     h2{
         font-size: 46px;
@@ -215,7 +266,7 @@ main{
             font-family: lato, sans-serif;
             font-weight: bold;
 
-            @include separator(left,2px,3em,rgb(50,5,80),10px);
+            @include separator(left,2px,3em,$themecolor,10px);
         }
         
         p:last-child{
@@ -232,7 +283,3 @@ main{
         }
     }
 }
-//@import 'reset';
-//@import 'accessibility';
-//@import 'typography';
-//@import 'header';
