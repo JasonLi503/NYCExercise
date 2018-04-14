@@ -7,13 +7,14 @@
 @import '../../../bower_components/foundation-sites/scss/global';
 @import '../../../bower_components/foundation-sites/scss/grid/grid';
 @import '../../../bower_components/foundation-sites/scss/util/_flex';
+@import '../../../bower_components/foundation-sites/scss/prototype/prototype';
 
 // Create and add all required SCSS files as the example below
 @import '../../../bower_components/foundation-sites/scss/components/_breadcrumbs';
+@import '../../../bower_components/foundation-sites/scss/components/_tooltip';
 @import './components/header';
 
 @import 'foundation';
-
 // $breadcrumbs-item-font-size: rem-calc(11);
 
 $breadcrumbs-item-uppercase: false;
@@ -26,7 +27,7 @@ $breadcrumbs-item-margin: 0.6rem;
 @include foundation-flex-classes;
 // @include foundation-typography;
 // @include foundation-forms;
-// @include foundation-button;
+@include foundation-button;
 // @include foundation-accordion;
 // @include foundation-accordion-menu;
 // @include foundation-badge;
@@ -52,30 +53,49 @@ $breadcrumbs-item-margin: 0.6rem;
 // @include foundation-reveal;
 // @include foundation-switch;
 // @include foundation-table;
-// @include foundation-tabs;
+@include foundation-tabs;
 // @include foundation-thumbnail;
 // @include foundation-title-bar;
-// @include foundation-tooltip;
+@include foundation-tooltip;
 // @include foundation-top-bar;
 // @include foundation-visibility-classes;
 // @include foundation-float-classes;
+
+// @include foundation-everything(true);
+// @include foundation-prototype-classes;
+
+// @include foundation-prototype-typescale;
+// @include foundation-prototype-text-utilities;
+// @include foundation-prototype-text-transformation;
+// @include foundation-prototype-text-decoration;
+// @include foundation-prototype-font-styling;
+// @include foundation-prototype-list-style-type;
+// @include foundation-prototype-rounded;
+// @include foundation-prototype-bordered;
+// @include foundation-prototype-shadow;
+// @include foundation-prototype-arrow;
+@include foundation-prototype-separator;
+// @include foundation-prototype-overflow;
+// @include foundation-prototype-display;
+// @include foundation-prototype-position;
+// @include foundation-prototype-border-box;
+// @include foundation-prototype-border-none;
+// @include foundation-prototype-sizing;
+// @include foundation-prototype-spacing;
+// @include separator();
 
 //variables  (uncomment once added the site variables SCSS file
 // @import 'variables';
 
 
-$deskWidth:1250px;
-$sideNav:300px;
-$navHeight:120px;
-$maincolor:rgb(37, 2, 68);
-$backgroundcolor:rgb(239, 231, 244);
-$contentmarginleft:30px;
-$sidebarWidth:285px;
+$pageWidth:1250px;
+$frontColor:rgb(37, 2, 68);
+$backgroundColor:rgb(239, 231, 244);
+$titleColor:rgb(239, 231, 244);
+$mygutter:30px;
+$themecolor:rgb(50,5,80);
 
 body{
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
     margin: 0;
     font-family: lato, sans-serif;
     font-weight: bold;
@@ -86,146 +106,129 @@ body{
         text-decoration-line: none;
     }
 }
+
+.columns, .column{
+    box-sizing: border-box;
+}
 header{
-    // display: table-cell;
-    // vertical-align: middle !important;
-    height: 107px;
-    width: $deskWidth;
-    // align-items: center;
-    margin: 0 auto;
-    margin-bottom: 16px;
+    height: 113px;
     img{
-        margin-top: 18px;
-        margin-left: 40px;
-        float: left;
+        padding-bottom: 6px;
     }
     .menu{
-        margin-top: 49px;
-        padding-left: 116px;
-        float: left;
+        padding-left: 0;
         a{
-            padding-left: 25px;
+            padding-right: 22px;
+            margin-bottom: 16px;
             font-size: 26px;
+            &:hover{
+                background-color: rgb(50,5,80);
+                color: white;
+            }
         }
+    }
+}
+.panelMenu{
+    background-color: $backgroundColor;
+    border-top: solid 5px $frontColor;
+    margin: 0 auto;
+    width: 100%;
+    height: 160px;
+    
+    >div{
+        // padding-left: 75px;
+        @include flex-grid-row(null, 1300px, null, true, $grid-column-gutter);
+    }
+    .column:first{
+        float: left;
+    }
+    button{
+        background-color: $themecolor;
+    }
+    .menu{
+        height: 120px;
+        flex-flow: column wrap;
     }
 }
 .headerLine{
-    margin: 0;
-    width: 100%;
-    height: 1px;
     border-top: none;
     box-shadow: 0 2px 2px grey;
 }
-
+.myseparator{
+    @include separator(left,2px,3em,rgb(50,5,80),10px);
+    // @include separator($align, $height, $width, $background, $top);
+    // text-align: left;
+    // width: 200px;
+}
 main{
-    // display: flex;
-    // flex-direction: row;
-    width: $deskWidth;
-    margin: 0 auto;
-    margin-top: 45px;
+    .vm li:first-child{
+        margin: 40px 0 22px;
+        padding: 0;
+        font-size: 24px;
+    }
     .menu{
-        float: left;
-        width:$sidebarWidth;
-        // margin-top: 34px;
-        // padding-top: 19px;
-        padding-left: 24px;
-
-        .menu-text{
-            padding-top: 0;
-            padding-bottom: 21px;
-            font-size: 24px;
-        }
+        padding-left: 0px;
         a{
+            padding-left: 0px;
             font-size: 15px;
             font-weight: normal;
         }
+        float: left;
     }
     //竖线
     .menu + hr{
-        // width: 10px;
-        // background-color: red;
-        margin: 43px 0 0;
+        margin: 0;
+        margin-top: 40px;
+        float: right;
     }
-    .content{
-        // display: flex;
-        // width: 100%;
-        // flex-direction: column; 
-        border-left: solid 1px grey;
-        margin-left: $sidebarWidth + 25px;
-        padding-left: 15px;
-
-        .breadcrumbs{
-            // padding: 0;
-            // margin-left: 10px;
-            margin-top: 5px;
-            a{
-                font-size: 14px;
-                color:grey;
-                font-weight: normal;
-            }
+    .breadcrumbs{
+        padding-left: 0;
+        margin-top: 45px;
+        margin-bottom: 0;
+        a{
+            font-size: 14px;
+            color:grey;
+            font-weight: normal;
         }
-        // align-items: flex-start;
-        // flex: 1;
-        // border-left-width: 1px;
-        // border-left-style: solid;
-        // border-left-color: grey;
+    }
+    h2{
+        font-size: 46px;
+        padding: 0;
+        margin: 23px 0;
+    }
+    img{
+        padding-top: 5px;
+    }
+    .newsback{
+        margin-top: 183px;
+        background-color: $backgroundColor;
+        p,h3{
+            margin: 0;
+            padding: 13px 15px
+        }
 
-        .msgblock{
-            margin-left: 12px;
-            color: $maincolor;
-            .columns{
-                padding: 0;
-            }
-            .columns:first-child{
-                h2{
-                    font-size: 46px;
-                    margin: 7px 0 30px 0px;
-                }
-            }
-            .columns:last-child{
-                // margin: 102px 0px;
-                // border: solid 1px red;
+        h3{
 
-                p{
-                    margin: 0 0px;
-                    padding: 0 15px;
-                    // width: 141px;
-                    
-                }
-                #newback{
-                    // background-color: $backgroundcolor;
-                    
-                    // border:solid 1px red;
-                    margin: 100px 18px;
-                    width: 170px;
-                    p:first-child{
-                        padding-top: 10px;
-                        border-top: solid 5px $maincolor;
-                        font-size: 20px;
+            border-top: solid 5px $frontColor;
+            padding-top: 7px;
+            font-size: 20px;
+            font-family: lato, sans-serif;
+            font-weight: bold;
 
-                    }
-                    background-color: $backgroundcolor;
-                    hr{
-                        background-color: $maincolor;
-                        width: 69px;
-                        margin-left: 15px;
-                        height: 1px;
-                    } 
-                    .newsdescript{
-                        font-size: 14px;
-                        font-weight: normal;
-                        padding-top: 5px;
-                        line-height: 21px;
-                        padding-bottom: 50px;
-                    }
-                    &:after{
-                        content:url(../img/share.png);
-                        float: right;
-                        margin-top: -21px;
-                        // margin-bottom: 0px;
-                    }
-                }
-            } 
+            @include separator(left,2px,3em,rgb(50,5,80),10px);
+        }
+        
+        p:last-child{
+            padding-bottom: 50px;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 21px;
+        }
+        
+        &:after{
+            content:url(../img/share.png);
+            float: right;
+            margin-top: -25px;
         }
     }
 }
